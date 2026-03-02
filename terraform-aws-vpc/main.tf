@@ -12,7 +12,7 @@ resource "aws_vpc" "myvpc" {
 
 
 
-# create a internet gateway
+#  1 create a internet gateway
 
 resource  "aws_internet_gateway" "myig" {
 
@@ -58,7 +58,7 @@ tags = {
 
 }
 
-#routing table
+# 3 routing table
 
   resource "aws_route_table" "myrt" {
 
@@ -86,7 +86,7 @@ tags = {
 
 
 
-# create Security Group
+# 4 create Security Group
 
 resource "aws_security_group" "vpcSec" {
 
@@ -131,7 +131,7 @@ resource "aws_security_group" "vpcSec" {
 }
 
 
-
+ # 5  create EC2 machine
  resource "aws_instance" "ec1" {
 
   ami           = "ami-0d176f79571d18a8f"
@@ -147,5 +147,6 @@ resource "aws_security_group" "vpcSec" {
     Name = "awslinuxvm"
 
   }
+
 
 }
