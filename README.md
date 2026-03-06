@@ -23,5 +23,3 @@ shows you what Terraform is going to do before it actually does it.
 ### 4. Apply the Changes : terraform apply
 actually creates, updates, or deletes infrastructure based on your Terraform configuration.
 
-![Uploading ScreenRecording2026-03-02160051-ezgif.com-video-to-gif-converter.gif…]()
-
