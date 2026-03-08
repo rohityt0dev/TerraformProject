@@ -1,0 +1,5 @@
+aws_region     = "ap-south-1"
+project_name   = "terraform-demo"
+environment    = "dev"
+instance_type  = "t2.micro"
+s3_bucket_name = "your-unique-bucket-name-here"
