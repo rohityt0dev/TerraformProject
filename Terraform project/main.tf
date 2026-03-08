@@ -1,6 +1,5 @@
-# ─────────────────────────────────────────
 # 1. IAM Role for EC2 (S3 Read Access)
-# ─────────────────────────────────────────
+
 resource "aws_iam_role" "ec2_role" {
   name = "${var.project_name}-ec2-role"
 
@@ -43,9 +42,8 @@ resource "aws_iam_instance_profile" "ec2_profile" {
   role = aws_iam_role.ec2_role.name
 }
 
-# ─────────────────────────────────────────
 # 2. Security Group for EC2
-# ─────────────────────────────────────────
+
 resource "aws_security_group" "ec2_sg" {
   name        = "${var.project_name}-sg"
   description = "Allow SSH inbound and all outbound"
@@ -67,9 +65,9 @@ resource "aws_security_group" "ec2_sg" {
   tags = local.common_tags
 }
 
-# ─────────────────────────────────────────
+
 # 3. EC2 Instance
-# ─────────────────────────────────────────
+
 resource "aws_instance" "main" {
   ami                    = var.ami_id
   instance_type          = var.instance_type
@@ -81,9 +79,9 @@ resource "aws_instance" "main" {
   })
 }
 
-# ─────────────────────────────────────────
+
 # 4. S3 Bucket with Encryption & Versioning
-# ─────────────────────────────────────────
+
 resource "aws_s3_bucket" "main" {
   bucket = var.s3_bucket_name
   tags   = merge(local.common_tags, { Name = var.s3_bucket_name })
@@ -113,13 +111,14 @@ resource "aws_s3_bucket_public_access_block" "main" {
   restrict_public_buckets = true
 }
 
-# ─────────────────────────────────────────
+
 # Local Values (DRY tagging)
-# ─────────────────────────────────────────
+
 locals {
   common_tags = {
     Project     = var.project_name
     Environment = var.environment
     ManagedBy   = "Terraform"
   }
+
 }
