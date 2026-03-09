@@ -12,7 +12,8 @@ terraform apply
 
 terraform destroy
 
-![alt text]()
+![alt text](https://github.com/rohityt0dev/TerraformProject/blob/4da8c90ff6ac3c1e001bf6747fcabbc031e1c90e/Terraform%20project/Terraform%20project.gif)
+
 
 
 
